@@ -1,6 +1,6 @@
 " ============================================================================
 " Description: Vim defaults.vim improved
-" Author: StarryLeo <https://github.com/StarryLeo>
+" Author: StarryLeo <suxggg@gmail.com>
 " URL: https://github.com/StarryLeo/vim-default-improved
 " License: MIT
 " ============================================================================
@@ -71,14 +71,12 @@ let g:loaded_default_improved = 1
   set scrolljump=5                " Lines to scroll when cursor leaves screen 光标离开屏幕滚动的最小行数
   set scrolloff=3                 " Minimum lines to keep above and below cursor 光标上下两侧最小保留行数
   set sidescrolloff=5             " Minimum columns to keep left and right cursor 光标左右两侧最小保留列数
+  set foldenable                  " Auto fold code  zi 快速切换自动折叠代码
+  set foldlevelstart=99           " Open all folds at start 启动时打开所有折叠
+  set foldmethod=marker
+  set foldmarker={,}
   set list
   set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace 突显特殊的空白
-  if get(g:, 'vim_default_improved_enable_folding', 1)
-    " Auto fold code  zi 快速切换自动折叠代码
-    set foldenable
-    set foldmethod=marker
-    set foldmarker={,}
-  endif
 
   set nowrap              " Do not wrap long lines 长行不折行
   set autoindent          " Indent at the same level of the previous line 自动对齐缩进
@@ -201,8 +199,8 @@ let g:loaded_default_improved = 1
     endif
     " }
 
-    " Tab {
-    if get(g:, 'vim_default_improved_tab_key_mapping', 1)
+    " TabPage {
+    if get(g:, 'vim_default_improved_tabpage_key_mapping', 1)
       nmap <Leader>+ gt
       nmap <Leader>- gT
       nmap <Leader>1 1gt
