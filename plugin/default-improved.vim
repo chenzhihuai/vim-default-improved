@@ -41,6 +41,7 @@ let g:loaded_default_improved = 1
   set spell                       " Spell checking on 开启拼写检查
   set spelllang+=cjk              " Check cjk spelling 检查 cjk 字符拼写
   set hidden                      " Allow buffer switching without saving 允许切换缓冲区不保存
+  set synmaxcol=500               " Lowering this improves performance in files with long lines 限制长行高亮以改善性能
   set ttyfast                     " Indicates a fast terminal connection, send more characters when redrawing 表明使用快速终端连接，屏幕重绘时可以发送更多字符
   set lazyredraw                  " Improve performance under some conditions 一些情况下可以改善性能
   set timeout timeoutlen=1000     " Set the time in milliseconds that is waited for 设置映射超时为 1000ms
