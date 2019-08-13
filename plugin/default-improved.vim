@@ -35,6 +35,7 @@ let g:loaded_default_improved = 1
 
   set mouse=a                     " Automatically enable mouse usage 开启鼠标模式
   set mousehide                   " Hide the mouse cursor while typing 输入时隐藏鼠标
+  set shortmess-=S                " Show search match index 显示当前匹配在搜索结果中的位置
   set shortmess+=cfilmnxoOtT      " Abbrev. of messages (avoids 'hit enter') 设置短消息
   set virtualedit=onemore         " Allow for cursor beyond last character 允许光标移动到刚刚超过行尾的位置
   set history=1000                " Store a ton of history (default is 50) 记录的历史命令数
