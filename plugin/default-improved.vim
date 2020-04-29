@@ -166,10 +166,6 @@ let g:loaded_default_improved = 1
       " Quickly get out of insert mode (use 'jj')
       " 快速离开插入模式（使用 jj）
       inoremap jj <Esc>
-
-      " Quickly get out of insert mode followed leader (use 'jk')
-      " 快速离开插入模式，紧跟着按下 leader 键（使用 jk）
-      imap jk <Esc><Leader>
     endif
     " }
 
