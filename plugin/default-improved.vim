@@ -150,6 +150,7 @@ let g:loaded_default_improved = 1
       cnoremap <C-a> <Home>
       cnoremap <C-e> <End>
       cnoremap <C-d> <Delete>
+      " May need to type quickly to expand. See :h map-typing
       " Change Working Directory to that of the current file
       " 快捷键切换当前文件目录为工作目录
       cmap cwd lcd %:p:h
