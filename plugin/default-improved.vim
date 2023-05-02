@@ -91,7 +91,7 @@ let g:loaded_default_improved = 1
   set splitright          " Puts new vsplit windows to the right of the current 水平向右新建窗口
   set splitbelow          " Puts new split windows to the bottom of the current 垂直向下新建窗口
   set nrformats-=octal    " Numbers that start with 00 will be considered to be decimal than octal  00x 增减数字时使用十进制
-  set formatoptions+=j    " Delete comment character when joining comment lines 连接多行注释时删除多余注释符号
+  set formatoptions+=jMm  " Delete comment character when joining comment lines, auto-wrap work with cjk 连接多行注释时删除多余注释符号，自动断行对 cjk 字符生效
   set backspace=indent,eol,start  " Backspace for dummies 设置退格键
 
 " Key (re)Mappings {
