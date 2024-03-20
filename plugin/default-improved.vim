@@ -95,6 +95,8 @@ let g:loaded_default_improved = 1
   set nrformats-=octal    " Numbers that start with 00 will be considered to be decimal than octal  00x 增减数字时使用十进制
   set formatoptions+=jMm  " Delete comment character when joining comment lines, auto-wrap work with cjk 连接多行注释时删除多余注释符号，自动断行对 cjk 字符生效
   set backspace=indent,eol,start  " Backspace for dummies 设置退格键
+  set t_Co=256
+  set t_tu=
 
 " Key (re)Mappings {
   if get(g:, 'vim_default_improved_key_mapping', 1)
