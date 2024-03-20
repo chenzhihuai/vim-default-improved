@@ -51,7 +51,7 @@ let g:loaded_default_improved = 1
   set tabpagemax=25      " Only show 25 tabs 最多只打开 25 个标签页
   set showmode           " Display the current mode 显示当前模式
 
-  set cursorline         " Highlight current line 高亮当前行
+  "set cursorline         " Highlight current line 高亮当前行
   set colorcolumn=+1     " Highlight column after 'textwidth' 高亮 'textwidth' 后一列
 
   set ruler              " Show the ruler 显示标尺
@@ -78,7 +78,9 @@ let g:loaded_default_improved = 1
   set foldmethod=marker
   set foldmarker={,}
   set list
-  set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace 突显特殊的空白
+  "set listchars=tab:→\ ,eol:↵,trail:·,extends:↷,precedes:↶ " Highlight problematic whitespace 突显特殊的空白
+  set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
+  set fillchars=stl:\ ,stlnc:\ ,fold:\ ,vert:│
 
   set nowrap              " Do not wrap long lines 长行不折行
   set autoindent          " Indent at the same level of the previous line 自动对齐缩进
@@ -121,6 +123,8 @@ let g:loaded_default_improved = 1
       noremap H ^
       noremap L $
 
+      imap <c-backspace> <c-w>
+
       " Toggle search highlighting
       " 搜索结果高亮切换
       nmap <silent> <Leader>/ :set invhlsearch<CR>
@@ -158,17 +162,10 @@ let g:loaded_default_improved = 1
 
       " For when you forget to sudo.. Really Write the file.
       " 编辑只读文件忘记用 sudo，使用 :w!! 保存
-      cmap w!! w !sudo tee % >/dev/null
+      command! W w !sudo tee % > /dev/null
     endif
     " }
 
-    " Esc {
-    if get(g:, 'vim_default_improved_esc_key_mapping', 1)
-      " Quickly get out of insert mode (use 'jj')
-      " 快速离开插入模式（使用 jj）
-      inoremap jj <Esc>
-    endif
-    " }
 
     " [ / ] {
     if get(g:, 'vim_default_improved_bracket_key_mapping', 1)
@@ -198,22 +195,6 @@ let g:loaded_default_improved = 1
     endif
     " }
 
-    " TabPage {
-    if get(g:, 'vim_default_improved_tabpage_key_mapping', 1)
-      nmap <Leader>+ gt
-      nmap <Leader>- gT
-      nmap <Leader>1 1gt
-      nmap <Leader>2 2gt
-      nmap <Leader>3 3gt
-      nmap <Leader>4 4gt
-      nmap <Leader>5 5gt
-      nmap <Leader>6 6gt
-      nmap <Leader>7 7gt
-      nmap <Leader>8 8gt
-      nmap <Leader>9 9gt
-      nmap <Leader>0 :tablast<CR>
-    endif
-    " }
   endif
 " }
 
@@ -225,11 +206,14 @@ let g:loaded_default_improved = 1
     set guioptions-=T         " Remove the toolbar
     set lines=41              " 41 lines of text instead of 24
     set columns=82            " 82 columns of text instead of 80
-  endif
+    set noerrorbells          " No annoying sound on errors
+    set novisualbell
+    set visualbell t_vb=
+endif
 " }
 
 " Backup Settings {
-  if get(g:, 'vim_default_improved_backup_on', 0)
+  if get(g:, 'vim_default_improved_backup_on', 1)
     set backup                " Backups are nice ... 设置备份
     if has('persistent_undo')
       set undofile            " So is persistent undo ... 保存撤销历史到撤销文件
