@@ -39,7 +39,7 @@ let g:loaded_default_improved = 1
   set shortmess+=cfilmnxoOtT      " Abbrev. of messages (avoids 'hit enter') 设置短消息
   set virtualedit=onemore         " Allow for cursor beyond last character 允许光标移动到刚刚超过行尾的位置
   set history=1000                " Store a ton of history (default is 50) 记录的历史命令数
-  set spell                       " Spell checking on 开启拼写检查
+  "set spell                       " Spell checking on 开启拼写检查
   set spelllang+=cjk              " Check cjk spelling 检查 cjk 字符拼写
   set hidden                      " Allow buffer switching without saving 允许切换缓冲区不保存
   set synmaxcol=500               " Lowering this improves performance in files with long lines 限制长行高亮以改善性能
@@ -83,6 +83,10 @@ let g:loaded_default_improved = 1
   set fillchars=stl:\ ,stlnc:\ ,fold:\ ,vert:│
 
   set nowrap              " Do not wrap long lines 长行不折行
+  set linebreak           " break long lines at word boundary 不在单词内部折断
+  set breakindent         " align wrapped text to the start of line 折的文本同行首对齐
+  "let showbreak='↪\ '     " The symbol shown before wrapped text 折行前显示一个特别的符号
+  "↳\
   set autoindent          " Indent at the same level of the previous line 自动对齐缩进
   set shiftwidth=4        " Use indents of 4 spaces 缩进使用 4 个空格
   set expandtab           " Tabs are spaces, not tabs 制表符（Tab 键）扩展为空格
@@ -189,7 +193,7 @@ let g:loaded_default_improved = 1
     " }
 
     " Window {
-    if get(g:, 'vim_default_improved_window_key_mapping', 1)
+    if get(g:, 'vim_default_improved_window_key_mapping', 0)
       map <C-j> <C-w>j
       map <C-k> <C-w>k
       map <C-h> <C-w>h
