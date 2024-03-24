@@ -52,7 +52,7 @@ let g:loaded_default_improved = 1
   set showmode           " Display the current mode 显示当前模式
 
   "set cursorline         " Highlight current line 高亮当前行
-  set colorcolumn=+1     " Highlight column after 'textwidth' 高亮 'textwidth' 后一列
+  "set colorcolumn=+1     " Highlight column after 'textwidth' 高亮 'textwidth' 后一列
 
   set ruler              " Show the ruler 显示标尺
   set showcmd            " Show partial commands in status line and 显示（部分）命令
