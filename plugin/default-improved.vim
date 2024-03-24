@@ -207,6 +207,7 @@ let g:loaded_default_improved = 1
 " GUI Settings {
   if has('gui_running')
     set guioptions-=L         " Remove the left-hand scrollbar
+    set guioptions-=r         " Remove the right-hand scrollbar
     set guioptions-=m         " Remove the menu bar
     set guioptions-=t         " Remove the tearoff menu items
     set guioptions-=T         " Remove the toolbar
