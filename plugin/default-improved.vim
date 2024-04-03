@@ -68,7 +68,7 @@ let g:loaded_default_improved = 1
   set ignorecase                  " Case insensitive search 搜索忽略大小写
   set smartcase                   " Case sensitive when uc present 当搜索模式包含大写字符时，区分大小写
   set wildmenu                    " Show list instead of just completing 显示命令行补全列表
-  set wildmode=full       " Command <Tab> completion, list matches, then longest common part, then all.  <Tab> 补全
+  set wildmode=full               " Command <Tab> completion, list matches, then longest common part, then all.  <Tab> 补全
   set wildoptions=pum,fuzzy
   set whichwrap=b,s,h,l,<,>       " Backspace and cursor keys wrap too 可行间回绕的键
   set scrolljump=5                " Lines to scroll when cursor leaves screen 光标离开屏幕滚动的最小行数
@@ -230,7 +230,10 @@ endif
     endif
 
     function! s:InitializeDirectories()
-      let parent = $HOME . '/.vim'
+      if !exists('$VIMHOME')
+          let $VIMHOME=has('nvim') ? stdpath('data') : has('linux') ? $HOME.'/.vim' : $HOME.'/vimfiles'
+      endif
+      let parent = $VIMHOME
       let prefix = 'vim'
       let dir_list = {
         \ 'backup': 'backupdir',
