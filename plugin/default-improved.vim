@@ -103,6 +103,8 @@ let g:loaded_default_improved = 1
   set t_Co=256
   set t_tu=
 
+
+
 " Key (re)Mappings {
   if get(g:, 'vim_default_improved_key_mapping', 1)
     " Basic {
@@ -270,5 +272,30 @@ endif
     set nowritebackup
   endif
 " }
+" buffer improved {
+" Return to last edit position when opening files (You want this!)
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+" Don't close window, when deleting a buffer
+command! Bclose call <SID>BufcloseCloseIt()
+function! <SID>BufcloseCloseIt()
+    let l:currentBufNum = bufnr("%")
+    let l:alternateBufNum = bufnr("#")
+
+    if buflisted(l:alternateBufNum)
+        buffer #
+    else
+        bnext
+    endif
+
+    if bufnr("%") == l:currentBufNum
+        new
+    endif
+
+    if buflisted(l:currentBufNum)
+        execute("bdelete! ".l:currentBufNum)
+    endif
+endfunction
+" }
+"
 
 " vim: sw=2
