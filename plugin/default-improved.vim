@@ -214,6 +214,7 @@ let g:loaded_default_improved = 1
     set guioptions-=m         " Remove the menu bar
     set guioptions-=t         " Remove the tearoff menu items
     set guioptions-=T         " Remove the toolbar
+    set guioptions-=e         " Remove Tabline
     set lines=41              " 41 lines of text instead of 24
     set columns=82            " 82 columns of text instead of 80
     set noerrorbells          " No annoying sound on errors
