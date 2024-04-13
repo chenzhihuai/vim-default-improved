@@ -37,64 +37,67 @@ let g:loaded_default_improved = 1
   set mousehide                   " Hide the mouse cursor while typing 输入时隐藏鼠标
   set shortmess-=S                " Show search match index 显示当前匹配在搜索结果中的位置
   set shortmess+=cfilmnxoOtT      " Abbrev. of messages (avoids 'hit enter') 设置短消息
-  set virtualedit=onemore         " Allow for cursor beyond last character 允许光标移动到刚刚超过行尾的位置
-  set history=1000                " Store a ton of history (default is 50) 记录的历史命令数
   set spelllang+=cjk              " Check cjk spelling 检查 cjk 字符拼写
-  set hidden                      " Allow buffer switching without saving 允许切换缓冲区不保存
   set synmaxcol=500               " Lowering this improves performance in files with long lines 限制长行高亮以改善性能
   set ttyfast                     " Indicates a fast terminal connection, send more characters when redrawing 表明使用快速终端连接，屏幕重绘时可以发送更多字符
   set lazyredraw                  " Improve performance under some conditions 一些情况下可以改善性能
   set timeout timeoutlen=1000     " Set the time in milliseconds that is waited for 设置映射超时为 1000ms
   set ttimeout ttimeoutlen=100    " A key code or mapped key sequence to complete 设置键码超时为 100ms
+  set winminheight=0              " Windows can be 0 line high 设置窗口高度可以为 0 行高
+  set hidden                      " Allow buffer switching without saving 允许切换缓冲区不保存
+  set splitright                  " Puts new vsplit windows to the right of the current 水平向右新建窗口
+  set splitbelow                  " Puts new split windows to the bottom of the current 垂直向下新建窗口
 
-  set tabpagemax=25               " Only show 25 tabs 最多只打开 25 个标签页
+  "cmdline
+  set history=1000                " Store a ton of history (default is 50) 记录的历史命令数
+  set wildmenu                    " Show list instead of just completing 显示命令行补全列表
+  set wildmode=full               " Command <Tab> completion, list matches, then longest common part, then all.  <Tab> 补全
+  set wildoptions=pum,fuzzy
 
+  " information
   set showmode                    " Display the current mode 显示当前模式
   set ruler                       " Show the ruler 显示标尺
   set showcmd                     " Show partial commands in status line and 显示（部分）命令
   set laststatus=2                " Show the statusline 显示状态栏
   set display+=lastline           " Show as much as possible of the lastline 尽可能多显示最后一行
-
   set number                      " Line numbers on 显示行号
   set signcolumn=yes              " Always show sign column 显示标号列
   set showmatch                   " Show matching brackets/parenthesis 显示匹配的括号
-  set winminheight=0              " Windows can be 0 line high 设置窗口高度可以为 0 行高
+
+  " search
   set hlsearch                    " Highlight search terms 高亮搜索词
   set ignorecase                  " Case insensitive search 搜索忽略大小写
   set smartcase                   " Case sensitive when uc present 当搜索模式包含大写字符时，区分大小写
-  set wildmenu                    " Show list instead of just completing 显示命令行补全列表
-  set wildmode=full               " Command <Tab> completion, list matches, then longest common part, then all.  <Tab> 补全
-  set wildoptions=pum,fuzzy
   set whichwrap=b,s,h,l,<,>       " Backspace and cursor keys wrap too 可行间回绕的键
-  set scrolljump=5                " Lines to scroll when cursor leaves screen 光标离开屏幕滚动的最小行数
-  set scrolloff=3                 " Minimum lines to keep above and below cursor 光标上下两侧最小保留行数
-  set sidescrolloff=5             " Minimum columns to keep left and right cursor 光标左右两侧最小保留列数
 
-  set foldenable                  " Auto fold code  zi 快速切换自动折叠代码
-  set foldlevelstart=99           " Open all folds at start 启动时打开所有折叠
-  set list
-  "set listchars=tab:→\ ,eol:↵,trail:·,extends:↷,precedes:↶ " Highlight problematic whitespace 突显特殊的空白
-  set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
-  set fillchars=stl:\ ,stlnc:\ ,fold:\ ,vert:│
-
-  set nowrap
-  set linebreak                   " break long lines at word boundary 不在单词内部折断
-  set breakindent                 " align wrapped text to the start of line 折的文本同行首对齐
-  "let showbreak='↪\ '     " The symbol shown before wrapped text 折行前显示一个特别的符号
-  "↳\
+  " editing text 
+  set virtualedit=onemore         " Allow for cursor beyond last character 允许光标移动到刚刚超过行尾的位置
+  set backspace=indent,eol,start  " Backspace for dummies 设置退格键
   set smarttab
   set autoindent                  " Indent at the same level of the previous line 自动对齐缩进
   set shiftwidth=4                " Use indents of 4 spaces 缩进使用 4 个空格
   set expandtab                   " Tabs are spaces, not tabs 制表符（Tab 键）扩展为空格
   set tabstop=4                   " An indentation every four columns 制表符所占空格数
   set softtabstop=4               " Let backspace delete indent 软制表符宽度
-  set linespace=0                 " No extra spaces between rows 行间没有多余空格
   set nojoinspaces                " Prevents inserting two spaces after punctuation on a join (J) 防止标点后接两个空格
-  set splitright                  " Puts new vsplit windows to the right of the current 水平向右新建窗口
-  set splitbelow                  " Puts new split windows to the bottom of the current 垂直向下新建窗口
   set nrformats-=octal            " Numbers that start with 00 will be considered to be decimal than octal  00x 增减数字时使用十进制
   set formatoptions+=jMm          " Delete comment character when joining comment lines, auto-wrap work with cjk 连接多行注释时删除多余注释符号，自动断行对 cjk 字符生效
-  set backspace=indent,eol,start  " Backspace for dummies 设置退格键
+
+  " displaying text
+  set scrolljump=5                " Lines to scroll when cursor leaves screen 光标离开屏幕滚动的最小行数
+  set scrolloff=3                 " Minimum lines to keep above and below cursor 光标上下两侧最小保留行数
+  set sidescrolloff=5             " Minimum columns to keep left and right cursor 光标左右两侧最小保留列数
+  set nowrap
+  set linebreak                   " break long lines at word boundary 不在单词内部折断
+  set breakindent                 " align wrapped text to the start of line 折的文本同行首对齐
+  "let showbreak='↪\ '            " The symbol shown before wrapped text 折行前显示一个特别的符号↳\
+  set list
+  "set listchars=tab:→\ ,eol:↵,trail:·,extends:↷,precedes:↶ " Highlight problematic whitespace 突显特殊的空白
+  set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
+  set fillchars=stl:\ ,stlnc:\ ,fold:\ ,vert:│
+  set foldenable                  " Auto fold code  zi 快速切换自动折叠代码
+  set foldlevelstart=99           " Open all folds at start 启动时打开所有折叠
+
   set t_Co=256
   set t_tu=
 
@@ -205,6 +208,7 @@ let g:loaded_default_improved = 1
     set noerrorbells          " No annoying sound on errors
     set novisualbell
     set visualbell t_vb=
+    set linespace=0
 endif
 " }
 
