@@ -39,7 +39,6 @@ let g:loaded_default_improved = 1
   set shortmess+=cfilmnxoOtT      " Abbrev. of messages (avoids 'hit enter') 设置短消息
   set virtualedit=onemore         " Allow for cursor beyond last character 允许光标移动到刚刚超过行尾的位置
   set history=1000                " Store a ton of history (default is 50) 记录的历史命令数
-  "set spell                       " Spell checking on 开启拼写检查
   set spelllang+=cjk              " Check cjk spelling 检查 cjk 字符拼写
   set hidden                      " Allow buffer switching without saving 允许切换缓冲区不保存
   set synmaxcol=500               " Lowering this improves performance in files with long lines 限制长行高亮以改善性能
@@ -48,23 +47,19 @@ let g:loaded_default_improved = 1
   set timeout timeoutlen=1000     " Set the time in milliseconds that is waited for 设置映射超时为 1000ms
   set ttimeout ttimeoutlen=100    " A key code or mapped key sequence to complete 设置键码超时为 100ms
 
-  set tabpagemax=25      " Only show 25 tabs 最多只打开 25 个标签页
-  set showmode           " Display the current mode 显示当前模式
+  set tabpagemax=25               " Only show 25 tabs 最多只打开 25 个标签页
 
-  "set cursorline         " Highlight current line 高亮当前行
-  "set colorcolumn=+1     " Highlight column after 'textwidth' 高亮 'textwidth' 后一列
-
-  set ruler              " Show the ruler 显示标尺
-  set showcmd            " Show partial commands in status line and 显示（部分）命令
-  set laststatus=2       " Show the statusline 显示状态栏
-  set display+=lastline  " Show as much as possible of the lastline 尽可能多显示最后一行
+  set showmode                    " Display the current mode 显示当前模式
+  set ruler                       " Show the ruler 显示标尺
+  set showcmd                     " Show partial commands in status line and 显示（部分）命令
+  set laststatus=2                " Show the statusline 显示状态栏
+  set display+=lastline           " Show as much as possible of the lastline 尽可能多显示最后一行
 
   set number                      " Line numbers on 显示行号
   set signcolumn=yes              " Always show sign column 显示标号列
   set showmatch                   " Show matching brackets/parenthesis 显示匹配的括号
-  set incsearch                   " Find as you type search 实时显示搜索匹配位置
-  set hlsearch                    " Highlight search terms 高亮搜索词
   set winminheight=0              " Windows can be 0 line high 设置窗口高度可以为 0 行高
+  set hlsearch                    " Highlight search terms 高亮搜索词
   set ignorecase                  " Case insensitive search 搜索忽略大小写
   set smartcase                   " Case sensitive when uc present 当搜索模式包含大写字符时，区分大小写
   set wildmenu                    " Show list instead of just completing 显示命令行补全列表
@@ -74,36 +69,38 @@ let g:loaded_default_improved = 1
   set scrolljump=5                " Lines to scroll when cursor leaves screen 光标离开屏幕滚动的最小行数
   set scrolloff=3                 " Minimum lines to keep above and below cursor 光标上下两侧最小保留行数
   set sidescrolloff=5             " Minimum columns to keep left and right cursor 光标左右两侧最小保留列数
+
   set foldenable                  " Auto fold code  zi 快速切换自动折叠代码
   set foldlevelstart=99           " Open all folds at start 启动时打开所有折叠
-  set foldmethod=marker
-  set foldmarker={,}
   set list
   "set listchars=tab:→\ ,eol:↵,trail:·,extends:↷,precedes:↶ " Highlight problematic whitespace 突显特殊的空白
   set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
   set fillchars=stl:\ ,stlnc:\ ,fold:\ ,vert:│
 
-  set nowrap              " Do not wrap long lines 长行不折行
-  set linebreak           " break long lines at word boundary 不在单词内部折断
-  set breakindent         " align wrapped text to the start of line 折的文本同行首对齐
+  set nowrap
+  set linebreak                   " break long lines at word boundary 不在单词内部折断
+  set breakindent                 " align wrapped text to the start of line 折的文本同行首对齐
   "let showbreak='↪\ '     " The symbol shown before wrapped text 折行前显示一个特别的符号
   "↳\
-  set autoindent          " Indent at the same level of the previous line 自动对齐缩进
-  set shiftwidth=4        " Use indents of 4 spaces 缩进使用 4 个空格
-  set expandtab           " Tabs are spaces, not tabs 制表符（Tab 键）扩展为空格
-  set tabstop=4           " An indentation every four columns 制表符所占空格数
-  set softtabstop=4       " Let backspace delete indent 软制表符宽度
-  set linespace=0         " No extra spaces between rows 行间没有多余空格
-  set nojoinspaces        " Prevents inserting two spaces after punctuation on a join (J) 防止标点后接两个空格
-  set splitright          " Puts new vsplit windows to the right of the current 水平向右新建窗口
-  set splitbelow          " Puts new split windows to the bottom of the current 垂直向下新建窗口
-  set nrformats-=octal    " Numbers that start with 00 will be considered to be decimal than octal  00x 增减数字时使用十进制
-  set formatoptions+=jMm  " Delete comment character when joining comment lines, auto-wrap work with cjk 连接多行注释时删除多余注释符号，自动断行对 cjk 字符生效
+  set smarttab
+  set autoindent                  " Indent at the same level of the previous line 自动对齐缩进
+  set shiftwidth=4                " Use indents of 4 spaces 缩进使用 4 个空格
+  set expandtab                   " Tabs are spaces, not tabs 制表符（Tab 键）扩展为空格
+  set tabstop=4                   " An indentation every four columns 制表符所占空格数
+  set softtabstop=4               " Let backspace delete indent 软制表符宽度
+  set linespace=0                 " No extra spaces between rows 行间没有多余空格
+  set nojoinspaces                " Prevents inserting two spaces after punctuation on a join (J) 防止标点后接两个空格
+  set splitright                  " Puts new vsplit windows to the right of the current 水平向右新建窗口
+  set splitbelow                  " Puts new split windows to the bottom of the current 垂直向下新建窗口
+  set nrformats-=octal            " Numbers that start with 00 will be considered to be decimal than octal  00x 增减数字时使用十进制
+  set formatoptions+=jMm          " Delete comment character when joining comment lines, auto-wrap work with cjk 连接多行注释时删除多余注释符号，自动断行对 cjk 字符生效
   set backspace=indent,eol,start  " Backspace for dummies 设置退格键
   set t_Co=256
   set t_tu=
 
 
+  highlight clear SignColumn      " SignColumn should match background
+  " highlight clear LineNr        " Current line number row will have same background color in relative mode
 
 " Key (re)Mappings {
   if get(g:, 'vim_default_improved_key_mapping', 1)
@@ -175,7 +172,6 @@ let g:loaded_default_improved = 1
     endif
     " }
 
-
     " [ / ] {
     if get(g:, 'vim_default_improved_bracket_key_mapping', 1)
       " Next and Previous
@@ -195,15 +191,6 @@ let g:loaded_default_improved = 1
     endif
     " }
 
-    " Window {
-    if get(g:, 'vim_default_improved_window_key_mapping', 0)
-      map <C-j> <C-w>j
-      map <C-k> <C-w>k
-      map <C-h> <C-w>h
-      map <C-l> <C-w>l
-    endif
-    " }
-
   endif
 " }
 
@@ -215,8 +202,6 @@ let g:loaded_default_improved = 1
     set guioptions-=t         " Remove the tearoff menu items
     set guioptions-=T         " Remove the toolbar
     set guioptions-=e         " Remove Tabline
-    set lines=41              " 41 lines of text instead of 24
-    set columns=82            " 82 columns of text instead of 80
     set noerrorbells          " No annoying sound on errors
     set novisualbell
     set visualbell t_vb=
@@ -273,7 +258,7 @@ endif
     set nowritebackup
   endif
 " }
-" buffer improved {
+" Buffer improved {
 " Return to last edit position when opening files (You want this!)
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 " Don't close window, when deleting a buffer
@@ -299,4 +284,4 @@ endfunction
 " }
 "
 
-" vim: sw=2
+" vim: sw=2 fdm=marker fmr={,}
